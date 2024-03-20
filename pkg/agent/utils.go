@@ -400,9 +400,12 @@ func getKubeletCustomConfiguration(properties *datamodel.Properties) map[string]
 func IsKubeletConfigFileEnabled(cs *datamodel.ContainerService, profile *datamodel.AgentPoolProfile, kubeletConfigFileToggleEnabled bool) bool {
 	// TODO(bowa) remove toggle when backfill.
 	// If customKubeletConfig or customLinuxOSConfig is used (API20201101 and later), use kubelet config file.
-	return profile.CustomKubeletConfig != nil || profile.CustomLinuxOSConfig != nil ||
-		(kubeletConfigFileToggleEnabled && cs.Properties.OrchestratorProfile.IsKubernetes() &&
-			IsKubernetesVersionGe(cs.Properties.OrchestratorProfile.OrchestratorVersion, "1.14.0"))
+
+	return true
+
+	/*return profile.CustomKubeletConfig != nil || profile.CustomLinuxOSConfig != nil ||
+	(kubeletConfigFileToggleEnabled && cs.Properties.OrchestratorProfile.IsKubernetes() &&
+		IsKubernetesVersionGe(cs.Properties.OrchestratorProfile.OrchestratorVersion, "1.14.0"))*/
 }
 
 // IsTLSBootstrappingEnabledWithHardCodedToken returns true if the specified TLS bootstrap token is non-nil, meaning
