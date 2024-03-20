@@ -2603,6 +2603,8 @@ EOF
         set -x
     fi
 
+    echo "${KUBELET_CONFIG_FILE_ENABLED}" > /etc/kubernetes/azure/test
+
     if [ "${KUBELET_CONFIG_FILE_ENABLED}" == "true" ]; then
         set +x
         KUBELET_CONFIG_JSON_PATH="/etc/default/kubeletconfig.json"
