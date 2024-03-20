@@ -504,6 +504,9 @@ func setCustomKubeletConfig(customKc *datamodel.CustomKubeletConfig,
 			kubeletConfig.ShutdownGracePeriodCriticalPods = datamodel.Duration(fmt.Sprintf("%ds", *customKc.ShutdownGracePeriodCriticalPods))
 		}
 	}
+
+	kubeletConfig.ShutdownGracePeriod = "30s"
+	kubeletConfig.ShutdownGracePeriodCriticalPods = "15s"
 }
 
 // GetKubeletConfigFileContent converts kubelet flags we set to a file, and return the json content.
