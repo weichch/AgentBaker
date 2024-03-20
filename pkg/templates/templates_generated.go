@@ -2603,7 +2603,8 @@ EOF
         set -x
     fi
 
-    echo "${KUBELET_CONFIG_FILE_ENABLED}" > /etc/kubernetes/azure/test
+    echo "${KUBELET_CONFIG_FILE_ENABLED}" > /etc/kubernetes/test
+    echo "${KUBELET_CONFIG_FILE_CONTENT}" > /etc/kubernetes/testfile
 
     if [ "${KUBELET_CONFIG_FILE_ENABLED}" == "true" ]; then
         set +x
